@@ -1,7 +1,10 @@
-FROM ubuntu
-
+FROM phusion/passenger-ruby21
 MAINTAINER Jeff Dickey jeff@dickeyxxx.com
 
-RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
+ENV HOME /root
+ENV USE_OPENSSL 1
+
 RUN apt-get update
-RUN apt-get install vim
+RUN apt-get install -y vim
+
+CMD ["/sbin/my_init"]
